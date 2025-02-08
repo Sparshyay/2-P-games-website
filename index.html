@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-Player Games Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="GameHub Logo" class="logo">
+            <span class="logo-text">GameHub</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+            <li class="games-dropdown">
+                <span class="nav-link" data-page="games">Games</span>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-item" data-page="snake">Snake</a></li>
+                    <li><a href="#" class="dropdown-item" data-page="tictactoe">Tic Tac Toe</a></li>
+                    <li><a href="#" class="dropdown-item" data-page="pong">Pong</a></li>
+                    <li><a href="#" class="dropdown-item" data-page="memory">Memory</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="welcome-section">
+        <h1>Welcome to 2-Player Games Hub</h1>
+    </div>
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+    </div>
+
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page" style="display: block;">
+            <div class="game-grid">
+                <div class="game-card" data-game="tictactoe">
+                    <i class="fas fa-th"></i>
+                    <h3>Tic Tac Toe</h3>
+                </div>
+                <div class="game-card" data-game="snake">
+                    <i class="fas fa-wave-square"></i>
+                    <h3>Snake</h3>
+                </div>
+                <div class="game-card" data-game="pong">
+                    <i class="fas fa-table-tennis"></i>
+                    <h3>Pong</h3>
+                </div>
+                <div class="game-card" data-game="memory">
+                    <i class="fas fa-brain"></i>
+                    <h3>Memory</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Sections -->
+        <section id="tictactoe" class="page game-section">
+            <div class="game-header">
+                <h2>Tic Tac Toe</h2>
+                <div class="game-score">
+                    <span class="player-score">Player X: <span id="score-x">0</span></span>
+                    <span class="player-score">Player O: <span id="score-o">0</span></span>
+                </div>
+            </div>
+            <div class="game-container">
+                <div class="game-instructions">
+                    <p>Take turns placing X's and O's on the board. First to get 3 in a row wins!</p>
+                </div>
+                <div class="game-board tictactoe-board"></div>
+                <div class="game-controls">
+                    <button class="game-button start-game"><i class="fas fa-play"></i> Start Game</button>
+                    <button class="game-button restart-game"><i class="fas fa-redo"></i> Restart</button>
+                </div>
+                <div class="game-status"></div>
+            </div>
+        </section>
+
+        <section id="snake" class="page game-section">
+            <div class="game-header">
+                <h2>Snake Game</h2>
+                <div class="game-score">
+                    <span class="player-score">High Score: <span id="snake-high-score">0</span></span>
+                    <span class="player-score">Current Score: <span id="snake-score">0</span></span>
+                </div>
+            </div>
+            <div class="game-container">
+                <div class="game-instructions">
+                    <p>Control your snake with arrow keys. Collect food and avoid walls!</p>
+                </div>
+                <canvas id="snake-game" class="snake-board"></canvas>
+                <div class="game-controls">
+                    <button class="game-button start-game"><i class="fas fa-play"></i> Start Game</button>
+                    <button class="game-button restart-game"><i class="fas fa-redo"></i> Restart</button>
+                </div>
+                <div class="game-status"></div>
+            </div>
+        </section>
+
+        <section id="pong" class="page game-section">
+            <div class="game-header">
+                <h2>Pong</h2>
+                <div class="game-score">
+                    <span class="player-score">Player 1: <span id="pong-score-1">0</span></span>
+                    <span class="player-score">Player 2: <span id="pong-score-2">0</span></span>
+                </div>
+            </div>
+            <div class="game-container">
+                <div class="game-instructions">
+                    <p>Player 1: W/S keys, Player 2: Up/Down arrows. First to 5 points wins!</p>
+                </div>
+                <canvas id="pong-game" class="pong-board"></canvas>
+                <div class="game-controls">
+                    <button class="game-button start-game"><i class="fas fa-play"></i> Start Game</button>
+                    <button class="game-button restart-game"><i class="fas fa-redo"></i> Restart</button>
+                </div>
+                <div class="game-status"></div>
+            </div>
+        </section>
+
+        <section id="memory" class="page game-section">
+            <div class="game-header">
+                <h2>Memory Game</h2>
+                <div class="game-score">
+                    <span class="player-score">Player 1: <span id="memory-score-1">0</span></span>
+                    <span class="player-score">Player 2: <span id="memory-score-2">0</span></span>
+                </div>
+            </div>
+            <div class="game-container">
+                <div class="game-instructions">
+                    <p>Match pairs of cards. Take turns flipping two cards at a time!</p>
+                </div>
+                <div class="memory-board"></div>
+                <div class="game-controls">
+                    <button class="game-button start-game"><i class="fas fa-play"></i> Start Game</button>
+                    <button class="game-button restart-game"><i class="fas fa-redo"></i> Restart</button>
+                </div>
+                <div class="game-status"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page">
+            <h2>About Us</h2>
+            <p>Welcome to the ultimate 2-player gaming experience! Challenge your friends and have fun!</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
